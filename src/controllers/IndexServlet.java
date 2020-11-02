@@ -35,12 +35,19 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
+     // 開くページ数を取得（デフォルトは1ページ目）
+
+
         List<Task> tasks = em.createNamedQuery("getAllTasks", Task.class)
-                                   .getResultList();
+
+                .getResultList();
+
+
 
         em.close();
 
         request.setAttribute("tasks", tasks);
+
 
      // フラッシュメッセージがセッションスコープにセットされていたら
         // リクエストスコープに保存する（セッションスコープからは削除）

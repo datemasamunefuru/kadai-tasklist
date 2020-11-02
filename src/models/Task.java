@@ -17,6 +17,7 @@ import javax.persistence.Table;
             name = "getAllTasks",
             query = "SELECT m FROM Task AS m ORDER BY m.id DESC"
             )
+
 })
 @Table(name = "tasks")
 public class Task {
@@ -69,4 +70,6 @@ public class Task {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+
 }
